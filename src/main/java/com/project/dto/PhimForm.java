@@ -1,19 +1,16 @@
-package com.project.entity;
+package com.project.dto;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "PHIM")
-public class Phim {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PhimForm {
+	
 	private int PHIM_ID;
 	private String MAPHIM;
 	private String TENPHIM;
@@ -22,6 +19,6 @@ public class Phim {
 	private String TRAILER;
 	private String NGAYKHOICHIEU;
 	private String HINHANH;
-	private String BANNER;
+	private MultipartFile BANNER;
 	private int DANHGIA;
 }

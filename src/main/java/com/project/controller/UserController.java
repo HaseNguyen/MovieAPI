@@ -23,12 +23,12 @@ import com.project.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 
 @RestController
-@RequestMapping("api/user/findall")
+@RequestMapping("api/user")
 public class UserController {
 	@Autowired
 	UserRepository userRepository;
 
-	@GetMapping
+	@GetMapping("api/user/findall")
 	public Object findAllUser() {
 		List<User> user = userRepository.findAll();
 		if(user.isEmpty()) {

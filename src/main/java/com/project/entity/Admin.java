@@ -2,11 +2,13 @@ package com.project.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "ADMIN")
 public class Admin {
 	@Id
 	private int ADMIN_ID;
