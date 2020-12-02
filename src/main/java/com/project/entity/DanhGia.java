@@ -3,6 +3,8 @@ package com.project.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -26,5 +28,13 @@ public class DanhGia {
 	
 	@Column(name ="PHIM_ID")
 	private int PHIM_ID;
+	
+	@ManyToOne
+	@JoinColumn(name="PHIM_ID", insertable = false, updatable = false)
+	private Phim phim;
 
+	
+	@ManyToOne
+	@JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+	private User user;
 }

@@ -1,9 +1,13 @@
 package com.project.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,4 +28,10 @@ public class Phim {
 	private String HINHANH;
 	private String BANNER;
 	private int DANHGIA;
+	
+	@OneToMany(mappedBy = "phim", fetch =  FetchType.EAGER)
+	private Set<LichChieu> lichchieu;
+	
+	@OneToMany(mappedBy = "phim", fetch = FetchType.EAGER)
+	private Set<DanhGia> danhgia;
 }

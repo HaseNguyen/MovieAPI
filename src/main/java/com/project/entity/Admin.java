@@ -1,7 +1,12 @@
 package com.project.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -11,6 +16,7 @@ import lombok.Data;
 @Table(name = "ADMIN")
 public class Admin {
 	@Id
+	@GeneratedValue
 	private int ADMIN_ID;
 	private String ADMIN_HOTEN;
 	private String ADMIN_EMAIL;
@@ -24,4 +30,5 @@ public class Admin {
 	private int ADMIN_SDT;
 	private int ADMIN_CHUCVU;
 	private String ADMIN_NGAYSINH;
+
 }
