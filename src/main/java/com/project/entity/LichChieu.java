@@ -29,7 +29,7 @@ public class LichChieu {
 
 	
 	
-	@OneToMany(mappedBy = "lichchieu", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "lichchieu", fetch = FetchType.LAZY)
 	private Set<Ve> ve;
 	
 	

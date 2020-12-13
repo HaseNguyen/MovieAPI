@@ -29,9 +29,9 @@ public class Phim {
 	private String BANNER;
 	private int DANHGIA;
 	
-	@OneToMany(mappedBy = "phim", fetch =  FetchType.EAGER)
+	@OneToMany(mappedBy = "phim", fetch =  FetchType.LAZY)
 	private Set<LichChieu> lichchieu;
 	
-	@OneToMany(mappedBy = "phim", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "phim", fetch = FetchType.LAZY)
 	private Set<DanhGia> danhgia;
 }

@@ -23,10 +23,17 @@ public class LichChieuService {
 		return lichChieu;
 	}
 	public Object addNewLichChieu(@RequestBody AddNewLichChieuDTO addNewLichChieuDTO) {
-		//int maxLichChieu_ID = lichChieuRepository.maxLichChieu_ID();
+		
 		ModelMapper modelMapper = new ModelMapper();
 		LichChieu lichChieu = modelMapper.map(addNewLichChieuDTO, LichChieu.class);
-		lichChieu.setMALICHCHIEU("MLC" + 1);
+		try {
+			int maxLichChieu_ID = lichChieuRepository.maxLichChieu_ID();
+			lichChieu.setMALICHCHIEU("MLC" + (maxLichChieu_ID + 1));
+		} catch (Exception e) {
+			// TODO: handle exception
+			lichChieu.setMALICHCHIEU("MLC1");
+		}
+			
 		lichChieuRepository.save(lichChieu);
 		return lichChieu;
 		

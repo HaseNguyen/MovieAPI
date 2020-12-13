@@ -34,9 +34,9 @@ public class User {
 	
 	private int GIOITINH;
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<DanhGia> danhgia;
 	
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER )
+	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY )
 	private Set<Ve> ve;
 }

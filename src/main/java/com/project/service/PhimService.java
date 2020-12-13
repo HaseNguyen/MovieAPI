@@ -30,10 +30,19 @@ public class PhimService {
 	
 	public Phim addNewPhim(@RequestBody AddNewPhimDTO addNewPhimDTO) {
 		
-		int maxPhim_ID = phimRepository.maxPHIM_ID();
+		
 		ModelMapper modelMapper = new ModelMapper();
 		Phim phim = modelMapper.map(addNewPhimDTO, Phim.class );
-		phim.setMAPHIM("MVC" + (maxPhim_ID + 001));
+		try {
+			int maxPhim_ID = phimRepository.maxPHIM_ID();
+			phim.setMAPHIM("MVC" + (maxPhim_ID + 001));
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("ID null");
+			phim.setMAPHIM("MVC1");
+
+		}
+		
 		phimRepository.save(phim);
 		return phim;
 		

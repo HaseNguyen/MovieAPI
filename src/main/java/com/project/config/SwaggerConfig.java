@@ -23,8 +23,8 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.basePackage("com.project.controller"))
 				.build()
 				.apiInfo(new ApiInfo(
-						"RESTful API", 
-						"RESTful API cho MedSul", 
+						"RESTFul API", 
+						"RESTFul API cho MovieLK", 
 						"", 
 						"",
 						new Contact("Lan", "", "nguyenlanyth@gmail.com"), 
