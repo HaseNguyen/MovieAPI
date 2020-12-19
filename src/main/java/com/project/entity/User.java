@@ -39,4 +39,7 @@ public class User {
 	
 	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY )
 	private Set<Ve> ve;
+	
+	
+	public User() {}
 }
