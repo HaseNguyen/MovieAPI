@@ -62,13 +62,14 @@ public class UserController {
 			int maxUser_ID = userRepository.maxUser_ID();
 			user.setMAUSER("US" + (maxUser_ID + 001));
 			user.setPASSWORD(hashed);
-			
+			user.setROLE("ROLE_USER");
 
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("ID null");
 			user.setMAUSER("US1");
 			user.setPASSWORD(hashed);
+			user.setROLE("ROLE_USER");
 		}
 		userRepository.save(user);
 		return new ResponseEntity<User>(user, HttpStatus.CREATED);

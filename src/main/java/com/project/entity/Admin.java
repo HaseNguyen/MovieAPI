@@ -30,5 +30,6 @@ public class Admin {
 	private int ADMIN_SDT;
 	private int ADMIN_CHUCVU;
 	private String ADMIN_NGAYSINH;
+	private String ADMIN_ROLE;
 
 }

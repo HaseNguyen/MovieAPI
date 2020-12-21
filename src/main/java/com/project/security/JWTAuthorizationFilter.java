@@ -59,7 +59,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 			UserDetails user = _userDetailsService.loadUserByUsername(username);
 			
 			UsernamePasswordAuthenticationToken authentication = 
-					new UsernamePasswordAuthenticationToken(user, null, null);
+					new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 			
 			// Gán thông tin vào Security Context
 			SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -68,5 +68,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		chain.doFilter(request, response);
 		
 	}
+	
 	
 }

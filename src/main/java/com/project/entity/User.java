@@ -28,7 +28,7 @@ public class User {
 	private String SDT;
 	private String HOTEN;
 	private String AVATAR;
-	
+	private String ROLE;
 	@Email(message = "Email ko đúng định dạng!")
 	private String EMAIL;
 	

@@ -29,7 +29,7 @@ public class UserService implements UserDetailsService {
 		if (user == null) {
 			throw new UsernameNotFoundException("Email không tồn tại!");
 		}
-		String roleName = user.getUSERNAME();
+		String roleName = user.getROLE();
 
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority(roleName));

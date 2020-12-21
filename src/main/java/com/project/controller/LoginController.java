@@ -44,11 +44,11 @@ public class LoginController {
 			
 			Date date = new Date();
 			// Bước 3: Tạo token
-			String token = Jwts
+			String token = Jwts	
 					.builder()
 					.setSubject(loginDto.getUSERNAME())
 					.setIssuedAt(date)
-					.setExpiration(new Date(date.getTime() + 864000000L))
+					.setExpiration(new Date(System.currentTimeMillis() + 864000000L))
 					.signWith(SignatureAlgorithm.HS512, "123qwe!@#")
 					.compact();
 			
@@ -59,4 +59,6 @@ public class LoginController {
 		}
 		return new ResponseEntity<String>("Sai email hoặc mật khẩu!", HttpStatus.BAD_REQUEST);
 	}
+	
+
 }

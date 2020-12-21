@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -42,20 +43,24 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 		.passwordEncoder(passwordEncoder());
 	}
 	
+
 	@Override // Cấu hình phân quyền
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.cors();
 		
 		http.csrf().disable()
-		.antMatcher("")
+		.antMatcher("/api/user/**")
 		.authorizeRequests()
-		.antMatchers("/api/user/login","/api/login")
+		.antMatchers("/api/login","/api/user/**")
 		.permitAll()
+		.antMatchers("/api/user/**")
+		.hasAnyRole("USER")
 		.anyRequest()
 		.authenticated();
 		
-		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), userDetailsService));
+		
 	}
 }
