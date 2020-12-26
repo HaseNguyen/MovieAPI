@@ -95,7 +95,7 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -107,6 +107,12 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.jmapper-framework</groupId>
+			<artifactId>jmapper-core</artifactId>
+			<version>1.6.0.1</version>
 		</dependency>
 	</dependencies>
 

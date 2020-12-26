@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.dto.AdminLoginDTO;
 import com.project.dto.LoginDTO;
+import com.project.entity.Admin;
 import com.project.entity.User;
 
 import io.jsonwebtoken.Jwts;
@@ -29,15 +31,15 @@ public class LoginController {
 	private AuthenticationManager authenticationManager;
 	
 	@PostMapping("")
-	public Object login(@RequestBody LoginDTO loginDto) {
+	public Object login(@RequestBody AdminLoginDTO adminLoginDTO) {
 		ModelMapper modelMapper = new ModelMapper();
-		User user = modelMapper.map(loginDto, User.class);
+		Admin admin = modelMapper.map(adminLoginDTO, Admin.class);
 		
 		try {
 			
 			// Bước 1: Gọi hàm đăng nhập của Spring Security
 			Authentication  authentication =  authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(user.getUSERNAME(),user.getPASSWORD()));
+					new UsernamePasswordAuthenticationToken(admin.getADMIN_USERNAME(),admin.getADMIN_PASSWORD()));
 	
 			// Bước 2: Lưu thông tin đăng nhập vào Context
 			SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -46,7 +48,7 @@ public class LoginController {
 			// Bước 3: Tạo token
 			String token = Jwts	
 					.builder()
-					.setSubject(loginDto.getUSERNAME())
+					.setSubject(adminLoginDTO.getADMIN_USERNAME())
 					.setIssuedAt(date)
 					.setExpiration(new Date(System.currentTimeMillis() + 864000000L))
 					.signWith(SignatureAlgorithm.HS512, "123qwe!@#")

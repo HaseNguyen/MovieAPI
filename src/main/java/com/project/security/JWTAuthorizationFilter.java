@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import com.project.entity.User;
+import com.project.repository.AdminRepository;
 import com.project.repository.UserRepository;
 
 import io.jsonwebtoken.Jwts;
@@ -26,7 +27,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 	UserDetailsService _userDetailsService;
 	
 	@Autowired
-	UserRepository userRepository;
+	AdminRepository adminRepository;
 	
 	public JWTAuthorizationFilter(AuthenticationManager authenticationManager,
 			UserDetailsService userDetailsService) {
@@ -56,8 +57,8 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 					.getSubject();
 			
 			// Lấy thông tin user từ db
-			UserDetails user = _userDetailsService.loadUserByUsername(username);
 			
+			UserDetails user = _userDetailsService.loadUserByUsername(username);
 			UsernamePasswordAuthenticationToken authentication = 
 					new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 			

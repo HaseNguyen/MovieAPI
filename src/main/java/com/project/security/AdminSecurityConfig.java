@@ -50,14 +50,14 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors();
 		
 		http.csrf().disable()
-		.antMatcher("/api/user/**")
+		.antMatcher("/api/**")
 		.authorizeRequests()
-		.antMatchers("/api/login","/api/user/**")
+		.antMatchers("/api/login")
 		.permitAll()
-		.antMatchers("/api/user/**","/api/ghe")
-		.hasAnyRole("USER")
+		.antMatchers("/api/**")
+		.hasAnyRole("ADMIN")
 		.anyRequest()
-		.authenticated();
+		.authenticated(); 
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), userDetailsService));
