@@ -28,5 +28,8 @@ public class HeThongRap {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hethongrap")
 	@JsonIgnore
 	private Set<CumRap> cumrap;
-
+	
+	public HeThongRap() {
+		
+	}
 }

@@ -33,4 +33,8 @@ public class Ve {
 	@ManyToOne
 	@JoinColumn(name ="USER_ID", insertable = false, updatable = false)
 	private User user;
+	
+	public Ve() {
+		
+	}
 }

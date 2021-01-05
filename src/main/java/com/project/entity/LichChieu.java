@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -27,20 +28,24 @@ public class LichChieu {
 	private String THOIGIANKETTHUC;	
 	private Double HESOCHENHLECH;
 
-	
-	
 	@OneToMany(mappedBy = "lichchieu", fetch = FetchType.LAZY)
-	private Set<Ve> ve;
+	private List<Ve> ve;
 	
 	
 	private int RAP_ID;
 	@ManyToOne
 	@JoinColumn(name= "RAP_ID", insertable = false, updatable = false)
+	@JsonIgnore
 	private Rap rap;
 	
 	private int PHIM_ID;
 	@ManyToOne
 	@JoinColumn(name = "PHIM_ID", insertable = false, updatable = false)
+	@JsonIgnore
 	private Phim phim;
+	
+	public LichChieu() {
+		
+	}
 	
 }

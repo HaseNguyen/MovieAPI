@@ -33,4 +33,8 @@ public class Ghe {
 	@JoinColumn(name = "RAP_ID",insertable = false, updatable = false)
 	@JsonIgnore
 	private Rap rap;
+	
+	public Ghe() {
+		
+	}
 }

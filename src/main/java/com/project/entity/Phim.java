@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -30,8 +31,12 @@ public class Phim {
 	private int DANHGIA;
 	
 	@OneToMany(mappedBy = "phim", fetch =  FetchType.LAZY)
-	private Set<LichChieu> lichchieu;
+	private List<LichChieu> lichchieu;
 	
 	@OneToMany(mappedBy = "phim", fetch = FetchType.LAZY)
-	private Set<DanhGia> danhgia;
+	private List<DanhGia> danhgia;
+	
+	public Phim() {
+		
+	}
 }

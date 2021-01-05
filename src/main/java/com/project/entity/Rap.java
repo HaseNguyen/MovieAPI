@@ -39,4 +39,8 @@ public class Rap {
 	@JoinColumn(name = "CUMRAP_ID", insertable = false, updatable = false)
 	@JsonIgnore
 	private CumRap cumrap;
+	
+	public Rap() {
+		
+	}
 }
