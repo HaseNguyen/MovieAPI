@@ -50,7 +50,7 @@ public class LoginController {
 					.builder()
 					.setSubject(adminLoginDTO.getADMIN_USERNAME())
 					.setIssuedAt(date)
-					.setExpiration(new Date(System.currentTimeMillis() + 864000000L))
+					.setExpiration(new Date(System.currentTimeMillis() + 86000L))
 					.signWith(SignatureAlgorithm.HS512, "123qwe!@#")
 					.compact();
 			

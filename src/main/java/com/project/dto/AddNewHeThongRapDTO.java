@@ -7,4 +7,5 @@ public class AddNewHeThongRapDTO {
 	private String TENHETHONGRAP;
 	private String BIDANH;
 	private String LOGO;
+	private String IMAGE;
 }

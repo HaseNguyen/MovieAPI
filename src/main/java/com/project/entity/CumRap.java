@@ -29,6 +29,7 @@ public class CumRap {
 	private String TENCUMRAP;
 	private String BIDANH;
 	private String LOGO;
+	private String IMAGE;
 	private String DIACHI;
 		
 	@ManyToOne

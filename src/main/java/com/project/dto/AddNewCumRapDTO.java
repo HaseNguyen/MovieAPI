@@ -9,4 +9,5 @@ public class AddNewCumRapDTO {
 	private String BIDANH;
 	private String LOGO;
 	private String DIACHI;
+	private String IMAGE;
 }
