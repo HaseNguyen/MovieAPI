@@ -24,7 +24,6 @@ public class HeThongRap {
 	private String TENHETHONGRAP;
 	private String BIDANH;
 	private String LOGO;
-	private String IMAGE;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hethongrap")
 	@JsonIgnore
