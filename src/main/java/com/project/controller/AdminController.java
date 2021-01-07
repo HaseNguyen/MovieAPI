@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.project.dto.AddNewAdminDTO;
 import com.project.service.AdminService;
@@ -28,6 +29,11 @@ public class AdminController {
 	@PostMapping("/addNewAdmin")
 	public Object AddNewAdmin(@RequestBody AddNewAdminDTO addNewAdminDTO) {
 		return ResponseEntity.ok(adminService.addNewAdmin(addNewAdminDTO));
+	}
+	
+	@PostMapping("/addNewManager")
+	public Object AddNewManager(@RequestBody AddNewAdminDTO addNewManagerDTO) {
+		return ResponseEntity.ok(adminService.addNewManager(addNewManagerDTO));
 	}
 	@PutMapping("/editAdmin/{id}")
 	public Object EditAdmin(@PathVariable int id, @RequestBody AddNewAdminDTO editAdminDTO ) {

@@ -54,8 +54,10 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 		.antMatchers("/api/login")
 		.permitAll()
-		.antMatchers("/api/**")
+		.antMatchers("/api/admin/addNewAdmin","/api/admin/addNewManager")
 		.hasAnyRole("ADMIN")
+		.antMatchers("/api/**")
+		.hasAnyRole("ADMIN","MANAGER")
 		.anyRequest()
 		.authenticated(); 
 		

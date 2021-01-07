@@ -22,6 +22,11 @@ public class LichChieuService {
 		List<LichChieu> lichChieu = lichChieuRepository.findAll();
 		return lichChieu;
 	}
+	
+	public Object findLichChieuByPhimID(int PHIM_ID) {
+		List<LichChieu> lichChieu = lichChieuRepository.findLichChieuByPhimID(PHIM_ID);
+		return lichChieu;
+	}
 	public Object addNewLichChieu(@RequestBody AddNewLichChieuDTO addNewLichChieuDTO) {
 		
 		ModelMapper modelMapper = new ModelMapper();

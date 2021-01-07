@@ -30,7 +30,12 @@ public class LichChieuController {
 	public Object getAlLichChieu() {
 		return ResponseEntity.ok(lichChieuService.getAllLichChieu());
 	}
-
+	
+	@GetMapping("api/lichchieu/findLichChieuByPhimId/{id}")
+	public Object findLichChieuByPhimId(@PathVariable int id) {
+		return ResponseEntity.ok(lichChieuService.findLichChieuByPhimID(id));
+	}
+	
 	@PostMapping("api/lichchieu/addNewLichChieu")
 	public Object addNewLichChieu(@RequestBody AddNewLichChieuDTO addNewLichChieuDTO) {
 		return ResponseEntity.ok(lichChieuService.addNewLichChieu(addNewLichChieuDTO));

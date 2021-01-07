@@ -20,7 +20,6 @@ public class AddNewAdminDTO {
 	private String ADMIN_SDT;
 	private int ADMIN_CHUCVU;
 	private String ADMIN_NGAYSINH;
-	private String ADMIN_ROLE;
 	
 	
 }

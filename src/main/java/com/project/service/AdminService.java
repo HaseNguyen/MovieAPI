@@ -58,6 +58,15 @@ public class AdminService implements UserDetailsService {
 		admin.setADMIN_ROLE("ROLE_ADMIN");
 		return adminRepository.save(admin);
 	}
+	public Object addNewManager(AddNewAdminDTO addNewManagerDTO) {
+		ModelMapper modelMapper = new ModelMapper();
+		Admin admin = modelMapper.map(addNewManagerDTO, Admin.class);
+		String hashed = BCrypt.hashpw(addNewManagerDTO.getADMIN_PASSWORD(), BCrypt.gensalt());
+		admin.setADMIN_ROLE("ROLE_MANAGER");
+		admin.setADMIN_PASSWORD(hashed);
+		return adminRepository.save(admin);
+		
+	}
 	
 	public Object editAdmin(int id,AddNewAdminDTO editAdminDTO) {
 		ModelMapper modelMapper = new ModelMapper();
@@ -75,6 +84,7 @@ public class AdminService implements UserDetailsService {
 		return "Complete";
 		}
 	}
+	
 	
 
 	public UserDetails loadUserByUsername(String usernameadmin) throws UsernameNotFoundException {
